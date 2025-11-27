@@ -129,8 +129,12 @@ val generateCompose = tasks.register("generateCompose") {
     }
 }
 
-// Ensure icons are generated before compilation
+// Ensure icons are generated
 tasks.matching { it.name.contains("compile", ignoreCase = true) }.configureEach {
+    dependsOn(generateCompose)
+}
+
+tasks.matching { it.name.endsWith("SourcesJar") }.configureEach {
     dependsOn(generateCompose)
 }
 
