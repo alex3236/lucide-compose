@@ -74,12 +74,10 @@ jobs:
           
           # Push commit and tags
           echo "Pushing changes to repository..."
-          if git push origin main --tags; then
+          if git push origin master --tags; then
             echo "✅ Successfully pushed commit and tag: $tag_name"
           else
-            echo "❌ Failed to push. Check repository permissions."
-            echo "Go to Settings → Actions → General → Workflow permissions"
-            echo "and enable 'Read and write permissions'"
+            echo "❌ Failed to push."
             exit 1
           fi
 
