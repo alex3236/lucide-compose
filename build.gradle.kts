@@ -4,7 +4,7 @@ import br.com.devsrsouza.svg2compose.IconNameTransformer
 import br.com.devsrsouza.svg2compose.Svg2Compose
 import br.com.devsrsouza.svg2compose.VectorType
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import java.util.Locale
+import java.util.*
 import LucideMetadataGenerator.generate as generateMetadata
 
 
@@ -134,7 +134,7 @@ tasks.matching { it.name.contains("compile", ignoreCase = true) }.configureEach 
     dependsOn(generateCompose)
 }
 
-tasks.matching { it.name.endsWith("SourcesJar") }.configureEach {
+tasks.matching { it.name.lowercase().endsWith("sourcesjar") }.configureEach {
     dependsOn(generateCompose)
 }
 
